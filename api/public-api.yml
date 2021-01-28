@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Public API of CyberPotato
+  description:
+  version: 1.0.0
+servers:
+  - url: 'https://'
+components:
+  schemas:
+    pairOptions:
+      type: object
+      properties:
+        action:
+          type: enum
+paths:
+  /v1/{curr_a}/{curr_b}:
+    options:
+      description: Get Options for currency pair
+      responses:
+        '200':
+          description: A list of options to fetch information.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pairOptions'
